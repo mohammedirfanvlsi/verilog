@@ -1,0 +1,90 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x651d206cf0b0 .scope module, "decoder_2to4_en_tb" "decoder_2to4_en_tb" 2 1;
+ .timescale 0 0;
+v0x651d206e5130_0 .var "a", 0 0;
+v0x651d206e51f0_0 .var "b", 0 0;
+v0x651d206e52c0_0 .net "d0", 0 0, L_0x651d206e56d0;  1 drivers
+v0x651d206e53c0_0 .net "d1", 0 0, L_0x651d206e5810;  1 drivers
+v0x651d206e5490_0 .net "d2", 0 0, L_0x651d206e59a0;  1 drivers
+v0x651d206e5530_0 .net "d3", 0 0, L_0x651d206e5ab0;  1 drivers
+v0x651d206e5600_0 .var "en", 0 0;
+S_0x651d206cf240 .scope module, "dut" "decoder_2to4_en" 2 6, 3 1 0, S_0x651d206cf0b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "en";
+    .port_info 3 /OUTPUT 1 "d0";
+    .port_info 4 /OUTPUT 1 "d1";
+    .port_info 5 /OUTPUT 1 "d2";
+    .port_info 6 /OUTPUT 1 "d3";
+L_0x651d206e56d0 .functor AND 1, v0x651d206e5600_0, L_0x651d206e5ba0, L_0x651d206e5ca0, C4<1>;
+L_0x651d206e5810 .functor AND 1, v0x651d206e5600_0, L_0x651d206e5ba0, v0x651d206e51f0_0, C4<1>;
+L_0x651d206e59a0 .functor AND 1, v0x651d206e5600_0, v0x651d206e5130_0, L_0x651d206e5ca0, C4<1>;
+L_0x651d206e5ab0 .functor AND 1, v0x651d206e5600_0, v0x651d206e5130_0, v0x651d206e51f0_0, C4<1>;
+L_0x651d206e5ba0 .functor NOT 1, v0x651d206e5130_0, C4<0>, C4<0>, C4<0>;
+L_0x651d206e5ca0 .functor NOT 1, v0x651d206e51f0_0, C4<0>, C4<0>, C4<0>;
+v0x651d206cf8e0_0 .net "a", 0 0, v0x651d206e5130_0;  1 drivers
+v0x651d206e4a20_0 .net "b", 0 0, v0x651d206e51f0_0;  1 drivers
+v0x651d206e4ae0_0 .net "d0", 0 0, L_0x651d206e56d0;  alias, 1 drivers
+v0x651d206e4b80_0 .net "d1", 0 0, L_0x651d206e5810;  alias, 1 drivers
+v0x651d206e4c40_0 .net "d2", 0 0, L_0x651d206e59a0;  alias, 1 drivers
+v0x651d206e4d50_0 .net "d3", 0 0, L_0x651d206e5ab0;  alias, 1 drivers
+v0x651d206e4e10_0 .net "en", 0 0, v0x651d206e5600_0;  1 drivers
+v0x651d206e4ed0_0 .net "w1", 0 0, L_0x651d206e5ba0;  1 drivers
+v0x651d206e4f90_0 .net "w2", 0 0, L_0x651d206e5ca0;  1 drivers
+    .scope S_0x651d206cf0b0;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "decoder_2to4_en.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x651d206cf0b0 {0 0 0};
+    %vpi_call 2 13 "$monitor", "time=%0t | a=%b,b=%b,d0=%b | d1=%b,d2=%b,d3=%b", $time, v0x651d206e5130_0, v0x651d206e51f0_0, v0x651d206e52c0_0, v0x651d206e53c0_0, v0x651d206e5490_0, v0x651d206e5530_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e5600_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e5130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e51f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e5600_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e5130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e51f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e5600_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e5130_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e51f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e5600_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e5130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x651d206e51f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e5600_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e5130_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x651d206e51f0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 21 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "decoder_2to4_en_tb.v";
+    "decoder_2to4_en.v";
