@@ -6,4 +6,3 @@ and a1(w2,a,b);
 and a2(w3,w1,cin);
 or o1(carry,w2,w3);
 endmodule
-
