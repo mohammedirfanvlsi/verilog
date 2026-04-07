@@ -21,14 +21,16 @@ initial begin
       en=0;
       d=4'b0000;
   
-      #6 en=1;
+       
 
-    #12 rst_n=1;
+     @(posedge clk);
+     rst_n=1;
+     en=1;
 
  for(i=0;i<16;i=i+1)begin
     
     d=i;
-    #6;
+    @(posedge clk);
      
 end
   $finish;
