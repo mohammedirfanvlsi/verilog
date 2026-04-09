@@ -1,0 +1,172 @@
+$date
+	Thu Apr  9 14:15:00 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module synchronous_fifo_tb $end
+$var wire 1 ! full $end
+$var wire 1 " empty $end
+$var wire 8 # dout [7:0] $end
+$var reg 1 $ clk $end
+$var reg 8 % din [7:0] $end
+$var reg 1 & re_en $end
+$var reg 1 ' rst_n $end
+$var reg 1 ( wr_en $end
+$scope module dut $end
+$var wire 1 $ clk $end
+$var wire 8 ) din [7:0] $end
+$var wire 1 & re_en $end
+$var wire 1 ' rst_n $end
+$var wire 1 ( wr_en $end
+$var wire 1 ! full $end
+$var wire 1 " empty $end
+$var parameter 32 * depth $end
+$var parameter 32 + width $end
+$var reg 8 , dout [7:0] $end
+$var reg 3 - re_ptr [2:0] $end
+$var reg 3 . wr_ptr [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 +
+b1000 *
+$end
+#0
+$dumpvars
+b0 .
+b0 -
+b0 ,
+b0 )
+0(
+0'
+0&
+b0 %
+0$
+b0 #
+1"
+0!
+$end
+#5
+0"
+b1 .
+b1 %
+b1 )
+1(
+1'
+1$
+#10
+0$
+#15
+b10 .
+b10 %
+b10 )
+1$
+#20
+0$
+#25
+b11 .
+b11 %
+b11 )
+1$
+#30
+0$
+#35
+b100 .
+b100 %
+b100 )
+1$
+#40
+0$
+#45
+b101 .
+b101 %
+b101 )
+1$
+#50
+0$
+#55
+b110 .
+b110 %
+b110 )
+1$
+#60
+0$
+#65
+1!
+b111 .
+b111 %
+b111 )
+1$
+#70
+0$
+#75
+b1000 %
+b1000 )
+1$
+#80
+0$
+#85
+0!
+b1 -
+b1 #
+b1 ,
+1&
+0(
+1$
+#90
+0$
+#95
+b10 -
+b10 #
+b10 ,
+1$
+#100
+0$
+#105
+b11 -
+b11 #
+b11 ,
+1$
+#110
+0$
+#115
+b100 -
+b100 #
+b100 ,
+1$
+#120
+0$
+#125
+b101 -
+b101 #
+b101 ,
+1$
+#130
+0$
+#135
+b110 -
+b110 #
+b110 ,
+1$
+#140
+0$
+#145
+1"
+b111 -
+b111 #
+b111 ,
+1$
+#150
+0$
+#155
+1$
+#160
+0$
+#165
+1$
