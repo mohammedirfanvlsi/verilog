@@ -29,10 +29,12 @@ always @(posedge clk or negedge rst_n)begin
         end
     end
 end
-       
-            assign full = ((wr_ptr + 1'b1) == re_ptr) ? 1'b1 : 1'b0;
-            assign empty = (wr_ptr == re_ptr) ? 1'b1 : 1'b0;
 
+            assign full = ((wr_ptr == depth-1) && (re_ptr == 0 )) ? 1'b1 :1'b0;
+            assign full = ((wr_ptr + 1'b1) == re_ptr) ? 1'b1 : 1'b0;
+            assign empty =((wr_ptr == 3) && (re_ptr == depth-5)) ? 1'b1 : 1'b0;
+            assign empty = (wr_ptr == re_ptr) ? 1'b1 : 1'b0;
+            
      
 
 endmodule
