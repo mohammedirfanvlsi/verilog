@@ -55,10 +55,12 @@ initial begin
 
     din=8'd7;
     @(posedge clk);
- 
 
+    din=8'd8;
+    @(posedge clk);
+ 
      
-     din=8'd8;
+     din=8'd9;
     @(posedge clk);
     wr_en=0;
 

@@ -1,5 +1,5 @@
 $date
-	Fri Apr 10 09:51:29 2026
+	Sat Apr 11 07:42:47 2026
 $end
 $version
 	Icarus Verilog
@@ -8,8 +8,8 @@ $timescale
 	1s
 $end
 $scope module synchronous_fifo_tb $end
-$var wire 1 ! empty $end
-$var wire 1 " full $end
+$var wire 1 ! full $end
+$var wire 1 " empty $end
 $var wire 8 # dout [7:0] $end
 $var reg 1 $ clk $end
 $var reg 8 % din [7:0] $end
@@ -19,16 +19,16 @@ $var reg 1 ( wr_en $end
 $scope module dut $end
 $var wire 1 $ clk $end
 $var wire 8 ) din [7:0] $end
-$var wire 1 ! empty $end
-$var wire 1 " full $end
 $var wire 1 & re_en $end
 $var wire 1 ' rst_n $end
 $var wire 1 ( wr_en $end
+$var wire 1 ! full $end
+$var wire 1 " empty $end
 $var parameter 32 * depth $end
 $var parameter 32 + width $end
 $var reg 8 , dout [7:0] $end
-$var reg 3 - re_ptr [2:0] $end
-$var reg 3 . wr_ptr [2:0] $end
+$var reg 4 - re_ptr [3:0] $end
+$var reg 4 . wr_ptr [3:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -49,11 +49,11 @@ b0 )
 b0 %
 0$
 b0 #
-0"
-x!
+1"
+0!
 $end
 #5
-0!
+0"
 b1 .
 b1 %
 b1 )
@@ -98,7 +98,6 @@ b110 )
 #60
 0$
 #65
-1"
 b111 .
 b111 %
 b111 )
@@ -106,67 +105,78 @@ b111 )
 #70
 0$
 #75
+1!
+b1000 .
 b1000 %
 b1000 )
 1$
 #80
 0$
 #85
-0"
+b1001 %
+b1001 )
+1$
+#90
+0$
+#95
+0!
 b1 -
 b1 #
 b1 ,
 1&
 0(
 1$
-#90
+#100
 0$
-#95
+#105
 b10 -
 b10 #
 b10 ,
 1$
-#100
+#110
 0$
-#105
+#115
 b11 -
 b11 #
 b11 ,
 1$
-#110
+#120
 0$
-#115
+#125
 b100 -
 b100 #
 b100 ,
 1$
-#120
+#130
 0$
-#125
+#135
 b101 -
 b101 #
 b101 ,
 1$
-#130
+#140
 0$
-#135
+#145
 b110 -
 b110 #
 b110 ,
 1$
-#140
+#150
 0$
-#145
-x!
+#155
 b111 -
 b111 #
 b111 ,
 1$
-#150
-0$
-#155
-1$
 #160
 0$
 #165
+1"
+b1000 -
+b1000 #
+b1000 ,
+1$
+#170
+0$
+#175
 1$
