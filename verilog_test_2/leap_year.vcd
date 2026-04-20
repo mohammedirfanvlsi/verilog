@@ -1,0 +1,40 @@
+$date
+	Mon Apr 20 07:33:43 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module leap_year_tb $end
+$var wire 1 ! leap_year $end
+$var reg 1 " date29 $end
+$var reg 1 # feb $end
+$scope module dut $end
+$var wire 1 " date29 $end
+$var wire 1 # feb $end
+$var reg 1 ! leap_year $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0#
+x"
+0!
+$end
+#10
+0"
+#20
+1#
+#30
+1!
+1"
+#40
+0!
+0#
+#60

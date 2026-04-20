@@ -1,0 +1,66 @@
+$date
+	Mon Apr 20 15:57:15 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module second_largest_tb $end
+$var wire 4 ! second_max [3:0] $end
+$var reg 4 " a [3:0] $end
+$var reg 4 # b [3:0] $end
+$var reg 4 $ c [3:0] $end
+$var reg 4 % d [3:0] $end
+$scope module dut $end
+$var wire 4 & a [3:0] $end
+$var wire 4 ' b [3:0] $end
+$var wire 4 ( c [3:0] $end
+$var wire 4 ) d [3:0] $end
+$var reg 4 * max1 [3:0] $end
+$var reg 4 + max2 [3:0] $end
+$var reg 4 , second_max [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 ,
+b0 +
+b10 *
+bx )
+bx (
+bx '
+b10 &
+bx %
+bx $
+bx #
+b10 "
+b0 !
+$end
+#10
+b10 !
+b10 ,
+b1001 *
+b10 +
+b1001 #
+b1001 '
+#20
+b100 !
+b100 ,
+b100 +
+b1001 *
+b100 $
+b100 (
+#30
+b111 !
+b111 ,
+b111 +
+b1001 *
+b111 %
+b111 )
+#40
