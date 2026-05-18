@@ -1,4 +1,4 @@
-module fsm_seq_detector_tb;
+6module fsm_seq_detector_tb;
 
 reg din;
 reg rst_n;

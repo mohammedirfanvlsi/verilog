@@ -11,12 +11,9 @@ initial begin
     $dumpfile("second_largest.vcd");
     $dumpvars(0,second_largest_tb);
 
-    $monitor("time=%0t | a=%b,b=%b,c=%b,d=%b | second_max",$time,a,b,c,d,second_max);
+    $monitor("time=%0t | a=%h,b=%h,c=%h,d=%h | second_max=%h",$time,a,b,c,d,second_max);
 
-    a=4'h2;#10;
-    b=4'h9;#10;
-    c=4'h4;#10;
-    d=4'h7;#10;
+    a=4'h2;b=4'h9;c=4'h4;d=4'h7;#10;
 
 $finish;
 
