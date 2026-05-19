@@ -1,0 +1,156 @@
+$date
+	Tue May 19 06:26:03 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module axi_lite_fsm_tb $end
+$var wire 1 ! wvalid $end
+$var wire 1 " bready $end
+$var wire 1 # awvalid $end
+$var reg 1 $ awready $end
+$var reg 1 % bvalid $end
+$var reg 1 & clk $end
+$var reg 1 ' rst_n $end
+$var reg 1 ( start_write $end
+$var reg 1 ) wready $end
+$scope module dut $end
+$var wire 1 $ awready $end
+$var wire 1 % bvalid $end
+$var wire 1 & clk $end
+$var wire 1 ' rst_n $end
+$var wire 1 ( start_write $end
+$var wire 1 ) wready $end
+$var parameter 2 * IDLE $end
+$var parameter 2 + WRITE_ADDR $end
+$var parameter 2 , WRITE_DATA $end
+$var parameter 2 - WRITE_RESP $end
+$var reg 1 # awvalid $end
+$var reg 1 " bready $end
+$var reg 2 . next_state [1:0] $end
+$var reg 2 / state [1:0] $end
+$var reg 1 ! wvalid $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 -
+b10 ,
+b1 +
+b0 *
+$end
+#0
+$dumpvars
+b0 /
+b0 .
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#5
+1&
+#10
+0&
+#15
+1&
+#20
+0&
+1'
+#25
+b1 .
+1(
+1&
+#30
+0&
+#35
+b1 /
+b1 .
+0(
+1&
+#40
+0&
+#45
+1#
+1&
+#50
+0&
+#55
+b10 .
+1$
+1&
+#60
+0&
+#65
+b10 /
+b10 .
+0$
+1&
+#70
+0&
+#75
+1!
+0#
+1&
+#80
+0&
+#85
+b11 .
+1)
+1&
+#90
+0&
+#95
+b11 /
+b11 .
+0)
+1&
+#100
+0&
+#105
+1"
+0!
+1&
+#110
+0&
+#115
+b0 .
+1%
+1&
+#120
+0&
+#125
+b0 /
+b0 .
+0%
+1&
+#130
+0&
+#135
+0"
+1&
+#140
+0&
+#145
+1&
+#150
+0&
+#155
+1&
+#160
+0&
+#165
+1&
+#170
+0&
+#175
+1&
