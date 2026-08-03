@@ -1,0 +1,95 @@
+module asynch_fifo #(parameter depth = 8,width = 8,parameter addr_width = 3) (input [width-1:0]din,input wclk,rclk,wrst_n,rrst_n,input wr_en,re_en,output reg [width-1:0]dout,output full,empty);
+
+reg[width-1:0]mem[0:depth-1];
+
+reg[addr_width:0]wr_ptr_bin,re_ptr_gray;
+reg[addr_width:0]re_ptr_bin,wr_ptr_gray;
+and 
+reg[addr_width:0]wr_ptr_gray_syn1,wr_ptr_gray_syn2;
+reg[addr_width:0]re_ptr_gray_syn1,re_ptr_gray_syn2;
+
+
+function[addr_width:0]binary2gray;
+    input[addr_width:0]bin;
+
+    binary2gray = (bin >> 1) ^ bin;
+
+endfunction
+
+always @(posedge wclk or negedge wrst_n)begin
+
+    if(!wrst_n)begin
+
+        wr_ptr_bin <= 0;
+        wr_ptr_gray <= 0;
+
+    end
+
+    else if(wr_en && !full)begin
+
+        mem[wr_ptr_bin[addr_width-1:0]] <= din;
+        wr_ptr_bin <= wr_ptr_bin + 1;
+        wr_ptr_gray <= binary2gray( wr_ptr_bin + 1);
+
+    end
+end
+
+    always @(posedge rclk or negedge rrst_n)begin
+
+    if(!rrst_n)begin
+
+        re_ptr_bin <= 0;
+        re_ptr_gray <= 0;
+        dout <= 0;
+
+    end
+
+    else if(re_en && !empty)begin
+
+        dout <= mem[re_ptr_bin[addr_width-1:0]];
+        re_ptr_bin <= re_ptr_bin + 1;
+        re_ptr_gray <= binary2gray( re_ptr_bin + 1);
+
+    end
+end
+always @(posedge wclk or negedge wrst_n)begin
+
+    if(!wrst_n)begin
+
+     re_ptr_gray_syn1 <= 0;
+     re_ptr_gray_syn2 <= 0;
+
+ end
+
+ else begin 
+
+     re_ptr_gray_syn1 <= re_ptr_gray;
+     re_ptr_gray_syn2 <= re_ptr_gray_syn1;
+
+end
+end
+
+always @(posedge rclk or negedge rrst_n)begin
+
+    if(!rrst_n)begin
+
+     wr_ptr_gray_syn1 <= 0;
+     wr_ptr_gray_syn2 <= 0;
+
+ end
+
+ else begin 
+
+     wr_ptr_gray_syn1 <= wr_ptr_gray;
+     wr_ptr_gray_syn2 <= wr_ptr_gray_syn1;
+
+end
+end
+
+assign full = (wr_ptr_gray ==
+                  {~re_ptr_gray_syn2[addr_width:addr_width-1],
+                    re_ptr_gray_syn2[addr_width-2:0]});
+
+assign empty = (re_ptr_gray == wr_ptr_gray_syn2);  
+
+endmodule
