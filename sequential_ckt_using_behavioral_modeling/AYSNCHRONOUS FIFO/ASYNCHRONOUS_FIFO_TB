@@ -1,0 +1,86 @@
+module asynchronous_fifo_tb;
+
+reg [7:0]din;
+reg wrst_n,rrst_n,wclk,rclk;
+reg wr_en,re_en;
+
+wire [7:0]dout;
+wire full;
+wire empty;
+
+asynch_fifo #(.depth(8),.width(8)) dut (.din(din),.wrst_n(wrst_n),.rrst_n(rrst_n),.wclk(wclk),.rclk(rclk),.wr_en(wr_en),.re_en(re_en),.dout(dout),.full(full),.empty(empty));
+
+always #5 wclk = ~wclk;
+always #7 rclk = ~rclk;
+
+initial begin
+
+    $dumpfile("asynchronous_fifo.vcd");
+    $dumpvars(0,asynchronous_fifo_tb);
+
+    $monitor("time=%0t | din=%b,wrst_n=%b,rrst_n=%b,rclk=%b,wclk=%b,wr_en=%b,re_en=%b | dout=%b,full=%b,empty=%b",$time,din,wrst_n,rrst_n,rclk,wclk,wr_en,re_en,dout,full,empty);
+
+    din = 0;
+    wrst_n=0;
+    rrst_n = 0;
+    wclk = 0;
+    rclk = 0;
+    wr_en=0;
+    re_en = 0;
+
+
+    @(posedge wclk);
+    wrst_n=1;
+   
+
+    @(posedge rclk);
+    rrst_n = 1;
+
+
+    @(posedge wclk);
+    wr_en=1;
+
+    din=8'd1;
+    @(posedge wclk);
+
+    
+    din=8'd2;
+    @(posedge wclk);
+
+     din=8'd3;
+    @(posedge wclk);
+    
+
+    din=8'd4;
+    @(posedge wclk);
+    
+
+     din=8'd5;
+    @(posedge wclk);
+
+    din=8'd6;
+    @(posedge wclk);
+    
+
+    din=8'd7;
+    @(posedge wclk);
+
+    din=8'd8;
+    @(posedge wclk);
+ 
+     
+     din=8'd9;
+    @(posedge wclk);
+    wr_en=0;
+
+
+    re_en =1;
+while (!empty)
+
+@(posedge rclk);
+re_en =0;
+
+
+ $finish;
+end
+endmodule
