@@ -4,7 +4,7 @@ reg[width-1:0]mem[0:depth-1];
 
 reg[addr_width:0]wr_ptr_bin,re_ptr_gray;
 reg[addr_width:0]re_ptr_bin,wr_ptr_gray;
-and 
+
 reg[addr_width:0]wr_ptr_gray_syn1,wr_ptr_gray_syn2;
 reg[addr_width:0]re_ptr_gray_syn1,re_ptr_gray_syn2;
 
